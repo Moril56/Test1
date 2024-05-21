@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+int main() {
+    int age;
+    int choice;
+
+    do {
+        // Відображення меню
+        printf("Меню:\n");
+        printf("1. Ввести вік\n");
+        printf("2. Вийти\n");
+        printf("Введіть ваш вибір: ");
+
+        // Перевірка вводу вибору користувача
+        if (scanf("%d", &choice) != 1 || choice < 1 || choice > 2) {
+            printf("Неправильний вибір. Спробуйте ще раз.\n");
+            while ((getchar()) != '\n'); // Очищення буфера
+            continue;
+        }
+
+        // Обробка вибору користувача
+        if (choice == 1) {
+            printf("Введіть ваш вік: ");
+            // Перевірка правильності введення віку
+            if (scanf("%d", &age) != 1 || age < 1 || age > 120) {
+                printf("Некоректний ввід. Введіть вік від 1 до 120.\n");
+                while ((getchar()) != '\n'); // Очищення буфера
+                continue; // перехід до наступного проходження циклу
+            }
+
+            // Визначення вікової категорії
+            switch (age) {
+                case 1: case 2: case 3: case 4: case 5:
+                case 6: case 7: case 8: case 9: case 10:
+                    printf("Ви дитина.\n");
+                    break;
+                case 11: case 12: case 13: case 14: case 15:
+                    printf("Ви підліток.\n");
+                    break;
+                case 16: case 17: case 18: case 19: case 20:
+                    printf("Ви юнак.\n");
+                    break;
+                case 21: case 22: case 23: case 24: case 25:
+                case 26: case 27: case 28: case 29: case 30:
+                    printf("Ви молода людина.\n");
+                    break;
+                default:
+                    if (age > 30) {
+                        printf("Ви доросла людина.\n");
+                    } else {
+                        printf("Введено некоректний вік.\n");
+                    }
+                    break;
+            }
+        } else if (choice == 2) {
+            printf("Вихід...\n");
+        }
+
+    } while (choice != 2); // Продовжувати, поки користувач не обере вихід
+
+    return 0;
+}
+
