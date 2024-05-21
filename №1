@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int choice;
+
+    do {
+       
+        printf("Меню:\n");
+        printf("1. Обчислити вираз\n");
+        printf("2. Вийти\n");
+        printf("Введіть ваш вибір: ");
+
+      
+        scanf("%d", &choice);
+       
+
+        if (choice == 1) {
+            
+            double num1 = sqrt(2 + 2 + pow(2, 2)); //обчислення чисельника першого дробу
+            double den1 = sqrt(3 + 3 + pow(3, 2)); //обчислення знаменника першого дробу
+            double frac1 = num1 / den1;
+
+            // Обчислення другого виразу
+            double num2 = sqrt(4 + 4 + pow(4, 2));
+            double den2 = sqrt(8 + 8 + pow(8, 2));
+            double frac2 = num2 / den2;
+
+            // Обчислення кінцевого значення
+            double result = frac1 + frac2;
+
+            // Виведення результату
+            printf("Значення виразу: %.2lf\n", result);
+        } else if (choice == 2) {
+            printf("Вихід...\n");
+        } else {
+            printf("Невірний вибір. Будь ласка, спробуйте ще раз.\n");
+        }
+
+    } while (choice != 2); // Продовжувати, поки користувач не обере вихід
+
+    return 0;
+}
